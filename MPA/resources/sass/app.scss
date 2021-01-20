@@ -6,3 +6,39 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.main {
+    .form {
+        width: 500px;
+        color: white;
+
+        .form-group {
+            margin-bottom: 0rem;
+
+            input {
+                background-color: #4f5d73;
+                border-color: #2b3340;
+                height: 2.8rem;
+                color: white;
+
+                &::placeholder {
+                    color: rgb(143, 147, 163);
+                }
+
+                &.input-error {
+                    border-color: rgb(233, 41, 41);
+                }
+            }
+
+            button {
+                width: 100%;
+                color: white;
+            }
+
+            .error-message {
+                color: rgb(233, 41, 41);
+                margin-top: .5rem;
+            }
+        }
+    }
+}

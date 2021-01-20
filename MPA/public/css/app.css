@@ -9971,3 +9971,36 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.main .form {
+  width: 500px;
+  color: white;
+}
+.main .form .form-group {
+  margin-bottom: 0rem;
+}
+.main .form .form-group input {
+  background-color: #4f5d73;
+  border-color: #2b3340;
+  height: 2.8rem;
+  color: white;
+}
+.main .form .form-group input::-moz-placeholder {
+  color: #8f93a3;
+}
+.main .form .form-group input:-ms-input-placeholder {
+  color: #8f93a3;
+}
+.main .form .form-group input::placeholder {
+  color: #8f93a3;
+}
+.main .form .form-group input.input-error {
+  border-color: #e92929;
+}
+.main .form .form-group button {
+  width: 100%;
+  color: white;
+}
+.main .form .form-group .error-message {
+  color: #e92929;
+  margin-top: 0.5rem;
+}
