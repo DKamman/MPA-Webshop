@@ -22,30 +22,38 @@
                 <div class="collapse navbar-collapse mt-lg-0 mt-2" id="navbarMenu">
                     <ul class="navbar-nav">
                         <li class="nav-item ml-auto">
-                            <a href="#" class="nav-link">HOME</a>
+                            <a href="{{ route('home') }}" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item ml-auto">
-                            <a href="#" class="nav-link">CATEGORIES</a>
+                            <a href="#" class="nav-link">Categories</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-auto">
+                        @auth
+                            <li class="nav-item ml-auto">
+                                <a class="nav-link" href="">John Doe</a>
+                            </li>
+                            <li class="nav-item ml-auto pr-4">
+                                <a class="nav-link" href="">
+                                    Cart<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-transparent">+99 </span>
+                                </a>
+                            </li>
+                            <li class="nav-item ml-auto">
+                                <form action="{{ route('logout') }}" method="post">
+                                    @csrf
+                                    <button class="btn nav-link" type="submit">Logout</button>
+                                </form>
+                            </li>
+                        @endauth
+
+                        @guest
                         <li class="nav-item ml-auto">
-                            <a class="nav-link" href="">John Doe</a>
-                        </li>
-                        <li class="nav-item ml-auto pr-4">
-                            <a class="nav-link" href="">
-                                Cart<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-transparent">+99 </span>
-                            </a>
+                            <a class="nav-link" href="{{ route('login') }}">Login</a>
                         </li>
                         <li class="nav-item ml-auto">
-                            <a class="nav-link" href="">Logout</a>
-                        </li>
-                        <li class="nav-item ml-auto">
-                            <a href="{{ route('login') }}" class="nav-link">Login</a>
-                        </li>
-                        <li class="nav-item ml-auto">
-                            <a href="{{ route('register') }}" class="nav-link">Register</a>
-                        </li>
+                            <a class="nav-link" href="{{ route('register') }}">Register</a>
+                        </li>                            
+                        @endguest
                     </ul>
                 </div>
             </div>

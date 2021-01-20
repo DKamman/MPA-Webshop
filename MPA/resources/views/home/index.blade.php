@@ -2,6 +2,6 @@
 
 @section('content')
     <div class="container">
-        You are logged in!
+        Home
     </div>
 @endsection
