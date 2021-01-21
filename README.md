@@ -1,6 +1,5 @@
 # MPA-Webshop
-
-How to build the environment:
+# How to build the environment:
 
 # Compile Laravel dependencies
 composer install
