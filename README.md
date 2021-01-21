@@ -11,7 +11,7 @@ database user/pass/host/dbname to .env
 # Key generation
 php artisan key:generate
 
-# Installing all necesary dependencies
+# Compile Node dependencies
 npm install
 
 # Compile assets
