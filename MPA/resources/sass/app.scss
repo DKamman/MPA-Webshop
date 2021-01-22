@@ -45,4 +45,160 @@
             color: rgb(233, 41, 41);
         }
     }
+
+    &.page-body {
+        // background-color: red;
+        min-height: 100vh;
+        background-image: url("../../storage/app/background.png");
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Do not repeat the image */
+        background-size: cover; /* Resize the background image to cover the entire container */
+    
+        .no-padding {
+            padding-right: 0px;
+            padding-left: 0px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+    
+        .container {
+            padding-top: 2rem;
+    
+            .card {
+                overflow: hidden;
+                height: 25rem;
+                width: 85%;
+                border: none;
+                border-radius: 0;
+                background: none;
+                box-shadow: 1px 5px 10px 0px;
+    
+                &:hover {
+                    .background { 
+                        opacity: .25;
+                    }
+    
+                    .top {
+                        top: 0px;
+                        opacity: 1;
+                    }
+    
+                    .bottom {
+                        top: 0px;
+                        opacity: 1;
+                    }
+    
+                    .pricebox {
+                        opacity: 1;
+                    }
+                }
+    
+                .background {
+                    position: absolute;
+                    object-fit: fill;
+                    z-index: 1;
+                    transition: opacity .25s;
+                    opacity: 1;
+                }
+    
+                .top {
+                    background-image: url("../../storage/app/infinite.jpg");
+                    background-position: center; /* Center the image */
+                    background-repeat: no-repeat; /* Do not repeat the image */
+                    background-size: cover; /* Resize the background image to cover the entire container */
+                    position: relative;
+                    top: 360px;
+                    transition: top .5s, opacity .75s;
+                    background-color: red;
+                    height: 50%;
+                    opacity: 0;
+                    z-index: 2;
+    
+                    video {
+                        height: 100%;
+                    }
+                }
+    
+                .bottom {
+                    background: rgb(19,96,93);
+                    background: linear-gradient(135deg, rgba(19,96,93,1) 0%, rgba(35,59,82,1) 100%);
+                    position: relative;
+                    top: 180px;
+                    transition: top .5s, opacity .25s;
+                    background-color: yellow;
+                    height: 50%;
+                    padding: 10px 15px;
+                    opacity: 0;
+                    z-index: 2;
+    
+                    .context {
+                        padding: 0px 0px; 
+    
+                        * {
+                            margin-bottom: 0;
+                            margin-top: 0;
+                            color: white;
+                            font-size: .9rem; 
+                        }
+    
+                        .greyed {
+                            color: #6B8F9E; 
+                        }
+    
+                        .header {   
+                            font-size: 1.75rem !important;
+                        }
+    
+                        .review {
+                            color: #59A5B9;
+                        }
+                    }
+    
+                    .add-to-cart {
+                        border: none;
+                        border-radius: 2px;
+                        position: absolute;
+                        bottom: 10px;
+                        padding: 5px 10px;
+                        font-size: .9rem;
+                        color: #B8D160;
+                        background: rgb(113,142,8);
+                        background: linear-gradient(180deg, rgba(113,142,8,1) 0%, rgba(84,108,0,1) 70%);
+                    }
+                }
+    
+                .pricebox {
+                    background-color: black;
+                    opacity: 0.75;
+                    transition: opacity .5s;
+                    color: white;
+                    position: absolute;
+                    bottom: 12px;
+                    right: 0;
+                    font-size: .9rem;
+                    z-index: 3;
+                    height: 21px;
+    
+                    * {
+                        font-size: .9rem;
+                    }
+    
+                    div {
+                        display: inline-block;
+                    }
+    
+                    .old-price {
+                        color: #6C7980;
+                        line-height: 21px;
+                        text-decoration: line-through;
+                    }
+    
+                    .price {
+                        line-height: 21px;
+                        padding:5px 0px;
+                    }
+                }
+            }
+        }
+    }
 }

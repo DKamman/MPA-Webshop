@@ -1,6 +1,7 @@
 @extends('layout.app')
 
 @section('content')
+<div class="main mt-4">
     <div class="container">
         <div class="form bg-dark mx-auto p-4">
             <form action="{{ route('register') }}" method="post">
@@ -68,4 +69,5 @@
             </form>
         </div>
     </div>
+</div>
 @endsection

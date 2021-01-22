@@ -1,6 +1,7 @@
 @extends('layout.app')
 
 @section('content')
+<div class="main mt-4">
     <div class="container bg-white p-4">
         <div class="row">
             <div class="col-md-12">
@@ -22,5 +23,5 @@
             @endforeach
         </div>
     </div>
-    
+</div>
 @endsection
