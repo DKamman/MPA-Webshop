@@ -16,7 +16,11 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ $row->name }}</h5>
                         <p class="card-text">View all games in the category: {{ $row->name }}.</p>
-                        <a href="#" class="btn btn-primary">Go</a>
+                        <form action="{{ route('categories') }} " method="get">
+                            @csrf
+                            <input type="hidden" name="category" value="{{ $row->id }}">
+                            <button type="submit" class="btn btn-primary">{{ $row->name }}</button>
+                        </form>
                     </div> 
                 </div>
             </div>      
