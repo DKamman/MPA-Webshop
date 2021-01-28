@@ -31,7 +31,7 @@
                     <ul class="navbar-nav ml-auto">
                         @auth
                             <li class="nav-item ml-auto">
-                                <a class="nav-link" href="">John Doe</a>
+                                <a class="nav-link" href="">{{Auth::user()->name}}</a>
                             </li>
                             <li class="nav-item ml-auto pr-4">
                                 <a class="nav-link" href="">
