@@ -23,7 +23,7 @@
                             <p><span class="greyed">PUBLISHER: </span>Bungie</p>
                             <p><span class="greyed">ALL REVIEWS: </span><span class="review">Very Positive </span><span class="greyed">(93,299)</span></p>
                         </div>
-                        <button class="add-to-cart">Add to cart</button>                              
+                        <a href="{{ Route('cart.add', $row->id) }}" class="add-to-cart">Add to cart {{$row->id}}</a>                              
                     </div>
                     <div class="pricebox">
                         <div class="price">€{{ $row->price }}</div>

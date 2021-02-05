@@ -16,11 +16,12 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ $row->name }}</h5>
                         <p class="card-text">View all games in the category: {{ $row->name }}.</p>
-                        <form action="{{ route('categories') }} " method="get">
+                        {{-- <form action="{{ route('categories.show') }} " method="get">
                             @csrf
                             <input type="hidden" name="category" value="{{ $row->id }}">
                             <button type="submit" class="btn btn-primary">{{ $row->name }}</button>
-                        </form>
+                        </form> --}}
+                        <a href="{{ route('products.show', $row->id) }}" class="btn btn-primary">{{ $row->name }}</a>
                     </div> 
                 </div>
             </div>      
