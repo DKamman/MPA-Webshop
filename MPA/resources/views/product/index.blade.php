@@ -10,7 +10,7 @@
         </div>
         <div class="row">
             @foreach ($products as $row)
-            <div class="col-md-4 mb-3">
+            <div class="col-md-6 col-lg-4 mb-3">
                 <div class="card mx-auto">
                     <div class="top">
                         <video src="" type="video/mp4" autoplay></video>

@@ -24,4 +24,14 @@ class ProductController extends Controller
             'products' => $products
             ]);        
     }
+
+    // public function show(Product $products)
+    // {
+    //     $id = $products->category_id
+    //     $category = Category::where('id', $id)->get();
+    //     return view('categories.show', [
+    //         'category' => $category,
+    //         'products' => $products
+    //         ]);        
+    // }
 }

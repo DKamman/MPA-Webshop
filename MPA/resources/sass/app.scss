@@ -49,7 +49,8 @@
     &.page-body {
         // background-color: red;
         min-height: 100vh;
-        background-image: url("../../storage/app/background.png");
+        background-image: url("../../storage/app/background.jpg");
+        // background-image: url("../../storage/app/background.png");
         background-position: center; /* Center the image */
         background-repeat: no-repeat; /* Do not repeat the image */
         background-size: cover; /* Resize the background image to cover the entire container */
@@ -95,6 +96,8 @@
     
                 .background {
                     position: absolute;
+                    max-width: 100%;
+                    min-height: 100%;
                     object-fit: fill;
                     z-index: 1;
                     transition: opacity .25s;
@@ -102,14 +105,14 @@
                 }
     
                 .top {
-                    background-image: url("../../storage/app/infinite.jpg");
+                    // background-image: url("../../storage/app/infinite.jpg");
                     background-position: center; /* Center the image */
                     background-repeat: no-repeat; /* Do not repeat the image */
                     background-size: cover; /* Resize the background image to cover the entire container */
                     position: relative;
-                    top: 360px;
+                    top: 25rem;
                     transition: top .5s, opacity .75s;
-                    background-color: red;
+                    background-color: black;
                     height: 50%;
                     opacity: 0;
                     z-index: 2;
@@ -123,8 +126,8 @@
                     background: rgb(19,96,93);
                     background: linear-gradient(135deg, rgba(19,96,93,1) 0%, rgba(35,59,82,1) 100%);
                     position: relative;
-                    top: 180px;
-                    transition: top .5s, opacity .25s;
+                    top: 12.5rem;
+                    transition: top .5s, opacity .75s;
                     background-color: yellow;
                     height: 50%;
                     padding: 10px 15px;
@@ -177,10 +180,10 @@
                     right: 0;
                     font-size: .9rem;
                     z-index: 3;
-                    height: 21px;
+                    height: 20px;
     
                     * {
-                        font-size: .9rem;
+                        font-size: .85rem;
                     }
     
                     div {
@@ -194,8 +197,8 @@
                     }
     
                     .price {
-                        line-height: 21px;
-                        padding:5px 0px;
+                        line-height: 10px;
+                        padding:5px 2.5px;
                     }
                 }
             }

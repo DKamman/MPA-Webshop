@@ -10009,7 +10009,7 @@ h3 {
 }
 .main.page-body {
   min-height: 100vh;
-  background-image: url(/images/background.png?c208336e3d8ae3c2cbb6ddf15687b647);
+  background-image: url(/images/background.jpg?4941162443d56ff426bc6f295c355669);
   background-position: center;
   /* Center the image */
   background-repeat: no-repeat;
@@ -10051,6 +10051,8 @@ h3 {
 }
 .main.page-body .container .card .background {
   position: absolute;
+  max-width: 100%;
+  min-height: 100%;
   -o-object-fit: fill;
      object-fit: fill;
   z-index: 1;
@@ -10058,7 +10060,6 @@ h3 {
   opacity: 1;
 }
 .main.page-body .container .card .top {
-  background-image: url(/images/infinite.jpg?8a59560e1f8a450ebc999585996296fc);
   background-position: center;
   /* Center the image */
   background-repeat: no-repeat;
@@ -10066,9 +10067,9 @@ h3 {
   background-size: cover;
   /* Resize the background image to cover the entire container */
   position: relative;
-  top: 360px;
+  top: 25rem;
   transition: top 0.5s, opacity 0.75s;
-  background-color: red;
+  background-color: black;
   height: 50%;
   opacity: 0;
   z-index: 2;
@@ -10080,8 +10081,8 @@ h3 {
   background: #13605d;
   background: linear-gradient(135deg, #13605d 0%, #233b52 100%);
   position: relative;
-  top: 180px;
-  transition: top 0.5s, opacity 0.25s;
+  top: 12.5rem;
+  transition: top 0.5s, opacity 0.75s;
   background-color: yellow;
   height: 50%;
   padding: 10px 15px;
@@ -10127,10 +10128,10 @@ h3 {
   right: 0;
   font-size: 0.9rem;
   z-index: 3;
-  height: 21px;
+  height: 20px;
 }
 .main.page-body .container .card .pricebox * {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 .main.page-body .container .card .pricebox div {
   display: inline-block;
@@ -10141,6 +10142,6 @@ h3 {
   text-decoration: line-through;
 }
 .main.page-body .container .card .pricebox .price {
-  line-height: 21px;
-  padding: 5px 0px;
+  line-height: 10px;
+  padding: 5px 2.5px;
 }
