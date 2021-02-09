@@ -22,13 +22,12 @@ class ProductController extends Controller
 
     public function getDetail(Product $id)
     {
-        $product = Product::find($id);
-        $category = Category::find($id);
 
+        $product = $id;
+        // $category = Category::find($id);
         return view('product.detail', 
         [ 
-            'product' => $product,
-            'category' => $category
+            'product' => $product
         ]);
     }
 }
