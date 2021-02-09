@@ -19,4 +19,16 @@ class ProductController extends Controller
             'numbers' => $numbers
         ]);
     }
+
+    public function getDetail(Product $id)
+    {
+        $product = Product::find($id);
+        $category = Category::find($id);
+
+        return view('product.detail', 
+        [ 
+            'product' => $product,
+            'category' => $category
+        ]);
+    }
 }
