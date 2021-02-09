@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h3 class="text-center pb-2">Products</h3>
+                <h3 class="text-center pb-4">{{ $category[0]->name }}</h3>
             </div>
         </div>
         <div class="row">
@@ -26,7 +26,13 @@
                         <a href="{{ Route('cart.add', $row->id) }}" class="add-to-cart">Add to cart {{$row->id}}</a>                              
                     </div>
                     <div class="pricebox">
+                        @if (($row->price) == 0)
+                        <div class="price">Free to play</div>
+                        @elseif (($row->price) == -1)
+                        <div class="price">Unreleased</div>
+                        @else
                         <div class="price">€{{ $row->price }}</div>
+                        @endif
                     </div>
                     <img class="background" src="{{ $row->image_url }}" alt="">
                 </div>

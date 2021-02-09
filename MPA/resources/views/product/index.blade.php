@@ -26,7 +26,13 @@
                         <button class="add-to-cart">Add to cart</button>                              
                     </div>
                     <div class="pricebox">
+                        @if (($row->price) == 0)
+                        <div class="price">Free to play</div>
+                        @elseif (($row->price) == -1)
+                        <div class="price">Unreleased</div>
+                        @else
                         <div class="price">€{{ $row->price }}</div>
+                        @endif
                     </div>
                     <img class="background" src="{{ $row->image_url }}" alt="">
                 </div>

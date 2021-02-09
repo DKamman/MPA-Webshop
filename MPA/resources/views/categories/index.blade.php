@@ -21,7 +21,7 @@
                             <input type="hidden" name="category" value="{{ $row->id }}">
                             <button type="submit" class="btn btn-primary">{{ $row->name }}</button>
                         </form> --}}
-                        <a href="{{ route('products.show', $row->id) }}" class="btn btn-primary">{{ $row->name }}</a>
+                        <a href="{{ route('category.show', $row->id) }}" class="btn btn-primary">{{ $row->name }}</a>
                     </div> 
                 </div>
             </div>      

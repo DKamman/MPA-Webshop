@@ -10,28 +10,8 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = \App\Models\Product::all();
+        $products = Product::all();
 
         return view('product.index', ['products' => $products]);
     }
-
-    public function show($id)
-    {
-        $products = Product::where('category_id', $id)->get();
-        $category = Category::where('id', $id)->get();
-        return view('categories.show', [
-            'category' => $category,
-            'products' => $products
-            ]);        
-    }
-
-    // public function show(Product $products)
-    // {
-    //     $id = $products->category_id
-    //     $category = Category::where('id', $id)->get();
-    //     return view('categories.show', [
-    //         'category' => $category,
-    //         'products' => $products
-    //         ]);        
-    // }
 }
