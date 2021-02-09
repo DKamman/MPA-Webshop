@@ -11,7 +11,12 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
+        $numbers = [21.99, 14];
 
-        return view('product.index', ['products' => $products]);
+        return view('product.index', 
+        [
+            'products' => $products,
+            'numbers' => $numbers
+        ]);
     }
 }

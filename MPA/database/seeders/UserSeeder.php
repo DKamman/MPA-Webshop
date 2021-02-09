@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'name' => 'Danny Kamman',
             'username' => 'Danny',
             'email' => 'danny@danny.com',
-            'password' => 'Danny'
+            'password' => '$2y$10$QNJ34Ut40hytEj1t69aup.c8FGITE7vwbQVyu2Ne4zQbcXdD6nGrm'
         ]);
     }
 }

@@ -33,11 +33,13 @@
                             <li class="nav-item ml-auto">
                                 <a class="nav-link" href="">{{Auth::user()->name}}</a>
                             </li>
+                        @endauth
                             <li class="nav-item ml-auto pr-4">
-                                <a class="nav-link" href="">
-                                    Cart<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-transparent">+99 </span>
+                                <a class="nav-link" href="{{ route('cart.index') }}">
+                                    Cart<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-transparent">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span>
                                 </a>
                             </li>
+                            @auth
                             <li class="nav-item ml-auto">
                                 <form action="{{ route('logout') }}" method="post">
                                     @csrf

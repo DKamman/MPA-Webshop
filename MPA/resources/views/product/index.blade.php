@@ -23,9 +23,11 @@
                             <p><span class="greyed">PUBLISHER: </span>Bungie</p>
                             <p><span class="greyed">ALL REVIEWS: </span><span class="review">Very Positive </span><span class="greyed">(93,299)</span></p>
                         </div>
+                        <a href="{{ Route('products.detail', $row->id) }}" class="more">More {{$row->id}}</a>
                         <button class="add-to-cart">Add to cart</button>                              
                     </div>
                     <div class="pricebox">
+                        {{-- {{$row->price}} {{is_numeric($row->price)}} --}}
                         @if (($row->price) == 0)
                         <div class="price">Free to play</div>
                         @elseif (($row->price) == -1)

@@ -161,6 +161,19 @@
                         border: none;
                         border-radius: 2px;
                         position: absolute;
+                        left: 100px;
+                        bottom: 10px;
+                        padding: 5px 10px;
+                        font-size: .9rem;
+                        color: #B8D160;
+                        background: rgb(113,142,8);
+                        background: linear-gradient(180deg, rgba(113,142,8,1) 0%, rgba(84,108,0,1) 70%);
+                    }
+
+                    .more {
+                        border: none;
+                        border-radius: 2px;
+                        position: absolute;
                         bottom: 10px;
                         padding: 5px 10px;
                         font-size: .9rem;
