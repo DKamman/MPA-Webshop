@@ -24,7 +24,11 @@
                             <p><span class="greyed">ALL REVIEWS: </span><span class="review">Very Positive </span><span class="greyed">(93,299)</span></p>
                         </div>
                         <a href="{{ Route('products.detail', $row->id) }}" class="more">More {{$row->id}}</a>
-                        <a href="{{ Route('cart.add', $row->id) }}" class="add-to-cart">Add to cart {{$row->id}}</a>                             
+                        <a href="{{ Route('cart.add', $row->id) }}" class="add-to-cart">Add to cart {{$row->id}}</a>
+                        {{-- <form action="{{ Route('cart.add', $row->id) }}" method='get' >
+                            <input type="number" name="quantity" >
+                        </form> --}}
+
                     </div>
                     <div class="pricebox">
                         @if (($row->price) == 0)

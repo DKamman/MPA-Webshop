@@ -11,12 +11,12 @@ class Cart
     public $totalQty = 0;
     public $totalPrice = 0;
 
-    public function __construct($oldCart)
+    public function __construct($prevCart)
     {
-        if ($oldCart) {
-            $this->items = $oldCart->items;            
-            $this->totalQty = $oldCart->totalQty;
-            $this->totalPrice = $oldCart->totalPrice;
+        if ($prevCart) {
+            $this->items = $prevCart->items;            
+            $this->totalQty = $prevCart->totalQty;
+            $this->totalPrice = $prevCart->totalPrice;
         }
     }
 
@@ -32,5 +32,11 @@ class Cart
         $this->items[$id] = $storedItem;
         $this->totalQty++;
         $this->totalPrice += $item->price;
+    }
+
+    public function remove($id) {
+        if (array_key_exists($id, $this->items)) {
+            unset($this->items[$id]);
+        }
     }
 }
