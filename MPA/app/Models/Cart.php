@@ -46,4 +46,46 @@ class Cart
             // } 
         }
     }
+
+    public function update($id, $amount) {
+        if (array_key_exists($id, $this->items)) {
+            $item = $this->items[$id];
+            if ($amount == 0) {
+                $this->totalQty -= $item['qty'];
+                $this->totalPrice -= $item['price'];
+                unset($this->items[$id]);
+            }
+            if ($amount > $item['qty']) {
+                $previousPrice = $item['price'];
+                $previousQty = $item['qty'];
+                $newPrice = $item['item']['price'] * $amount;
+                
+                $item['price'] = $newPrice;
+                $item['qty'] = $amount;
+
+                $newTotalQty = $amount - $previousQty;
+                $newTotalPrice = $newPrice - $previousPrice;
+                $this->totalPrice += $newTotalPrice;
+                $this->totalQty += $newTotalQty;
+                $this->items[$id] = $item;
+            }
+            if ($amount < $item['qty']) {
+                
+                $previousPrice = $item['price'];
+                $previousQty = $item['qty'];
+                $newTotalQty = $previousQty - $amount;
+
+                $newPrice = $item['item']['price'] * $amount; 
+                $item['price'] = $newPrice;
+
+                $newTotalPrice = $previousPrice - $newPrice;
+
+                $item['qty'] = $amount;
+
+                $this->totalPrice -= $newTotalPrice;
+                $this->totalQty -= $newTotalQty;
+                $this->items[$id] = $item;
+            }
+        }
+    }
 }

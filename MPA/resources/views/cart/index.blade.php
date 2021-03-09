@@ -54,23 +54,26 @@
             <div class="container">
                 <div class="row">
                     @foreach ($products as $product)
-                    <div class="col-md-4">
-                        <ul class="list-group">
-                            <li class="list-group-item">{{ $product['item']['name'] }}</li>                            
-                        </ul>
-                    </div>
-                    <div class="col-md-4">
-                        <ul class="list-group">
-                            <li class="list-group-item">€{{ $product['price'] }}</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4">
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <input type="number" value="{{ $product['qty'] }}"><a href="{{ Route('cart.delete', $product['item']['id']) }}">Delete</a>
-                            </li>
-                        </ul>
-                    </div>
+                    <form action="{{ Route('cart.update') }}" method="get">
+                        <div class="col-md-4">
+                            <ul class="list-group">
+                                <li class="list-group-item">{{ $product['item']['name'] }}</li>                            
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <ul class="list-group">
+                                <li class="list-group-item">€{{ $product['price'] }}</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <input type="hidden" name="id" value="{{ $product['item']['id'] }}">
+                                    <input type="number" name="amount" value="{{ $product['qty'] }}"><button type="submit">Update</button><a href="{{ Route('cart.delete', $product['item']['id']) }}">Delete</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
                     @endforeach
                 </div>
                 <div class="row">

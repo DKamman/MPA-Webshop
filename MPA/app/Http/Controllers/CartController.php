@@ -45,4 +45,15 @@ class CartController extends Controller
         Session::put('cart', $cart);
         return redirect()->route('cart.index');
     }
+
+    public function updateCart(Request $request) 
+    {
+        $id = $request->input('id');
+        $amount = $request->input('amount');
+        $prevCart = Session::get('cart');
+        $cart = new Cart($prevCart);
+        $cart->update($id, $amount);
+        Session::put('cart', $cart);
+        return redirect()->route('cart.index');
+    }
 }

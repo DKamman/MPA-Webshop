@@ -30,6 +30,7 @@ Route::get('/products/{id}', [ProductController::class, 'getDetail'])->name('pro
 
 Route::get('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
 Route::get('/delete-from-cart/{id}', [CartController::class, 'deleteFromCart'])->name('cart.delete');
+Route::get('/update-cart', [CartController::class, 'updateCart'])->name('cart.update');
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
