@@ -39,20 +39,21 @@ class Cart
         if ($this->items) {
             if (array_key_exists($product->id, $this->items)) {
                 $storedItem = $this->items[$product->id];
-                $storedItem['qty'] += $amount;
-            } else {
-                $storedItem['qty'] = $amount;
             }
         }
+        $storedItem['qty'] += $amount;
         $storedItem['price'] = $product->price * $storedItem['qty'];
         $this->items[$product->id] = $storedItem;
-        $this->totalQty++;
+        $this->totalQty += $amount;
         $this->totalPrice += $product->price;
     }
     
     public function remove($id) {
         if (array_key_exists($id, $this->items)) {
-            unset($this->items[$id]);
+            $item = $this->items[$id];
+            $item;
+            $this->totalQty -= $item['qty'];
+            unset($item);
         }
     }
 }

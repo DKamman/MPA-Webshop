@@ -28,7 +28,6 @@
                             <button type="submit" class="btn btn-primary">Add to cart</button>
                         </div>
                     </form>
-                    {{-- <a href="{{ route('cart.add', $product->id) }}" class="btn btn-primary">Add to cart</a> --}}
                 </div>
             </div>
         </div>
