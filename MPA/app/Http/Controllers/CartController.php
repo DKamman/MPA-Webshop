@@ -24,12 +24,25 @@ class CartController extends Controller
         }
     }
     
-    public function addToCart(Request $request, $id) 
+    // public function addToCart(Request $request, $id) 
+    // {
+    //     $product = Product::find($id);
+    //     $prevCart = Session::has('cart') ? Session::get('cart') : null; 
+    //     $cart = new Cart($prevCart);
+    //     $cart->add($product, $product->id);
+    //     Session::put('cart', $cart);
+    //     // dd(Session::get('cart'));
+    //     return redirect()->route('category.show', $product->category_id);
+    // }
+
+    public function addToCart(Request $request) 
     {
+        $id = $request->input('id');
+        $amount = $request->input('amount');
         $product = Product::find($id);
         $prevCart = Session::has('cart') ? Session::get('cart') : null; 
         $cart = new Cart($prevCart);
-        $cart->add($product, $product->id);
+        $cart->add($product, $amount);
         Session::put('cart', $cart);
         // dd(Session::get('cart'));
         return redirect()->route('category.show', $product->category_id);

@@ -28,7 +28,7 @@ Route::get('/products', [ProductController::class, 'index'])->name('products');
 Route::get('/products/{id}', [ProductController::class, 'getDetail'])->name('products.detail');
 
 
-Route::get('/add-to-cart/{id}', [CartController::class, 'addToCart'])->name('cart.add');
+Route::get('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
 Route::get('/delete-from-cart/{id}', [CartController::class, 'deleteFromCart'])->name('cart.delete');
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 
