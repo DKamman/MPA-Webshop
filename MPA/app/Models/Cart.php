@@ -29,9 +29,10 @@ class Cart
         }
         $storedItem['qty'] += $amount;
         $storedItem['price'] = $product->price * $storedItem['qty'];
+        $newTotalPrice = $product->price * $amount;
         $this->items[$product->id] = $storedItem;
         $this->totalQty += $amount;
-        $this->totalPrice += $product->price;
+        $this->totalPrice += $newTotalPrice;
     }
     
     public function remove($id) {
