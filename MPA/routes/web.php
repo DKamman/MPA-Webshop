@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,11 +28,12 @@ Route::get('/categories/{id}', [CategoryController::class, 'show'])->name('categ
 Route::get('/products', [ProductController::class, 'index'])->name('products');
 Route::get('/products/{id}', [ProductController::class, 'getDetail'])->name('products.detail');
 
-
 Route::get('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
 Route::get('/delete-from-cart/{id}', [CartController::class, 'deleteFromCart'])->name('cart.delete');
 Route::get('/update-cart', [CartController::class, 'updateCart'])->name('cart.update');
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+
+Route::post('/order', [OrderController::class, 'order'])->name('order');
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);

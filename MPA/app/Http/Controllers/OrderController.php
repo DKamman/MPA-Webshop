@@ -1,40 +1,48 @@
 <?php
 
 namespace App\Http\Controllers;
+use Auth;
 
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    
-    /* Store a newly created resource in storage.
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\Response
-    */
+
    public function order(Request $request)
    {
-       if ($request->session()->get('cart')) {
-           $user = Auth::user(); 
-           $cart = $request->session()->get('cart');
 
-           Order::create([
-               'cart' => serialize($cart),
-               'user_id' => $user->id,
-           ]);
+    $user = Auth::user(); 
 
-       }
-       $request->session()->forget('cart');
+    if ($user != NULL) {
+        if ($request->session()->get('cart')) {
+            $cart = $request->session()->get('cart')->items;
+            // dd($cart);
+            $productKeys = array_keys($cart);
+            
+            foreach ($productKeys as $item) {
+                echo $item . '</br>';
+            }
 
-       return redirect()->route('shop.index');
+            // foreach ($cart as $product) {
+            //     echo $product['qty'] . "</br>";
+            //     echo $product['price'] . "</br>"; 
+            // }
+
+            // Order::create([
+            //     'cart' => serialize($cart),
+            //     'user_id' => $user->id,
+            // ]);
+ 
+        }
+    } else {
+       return redirect()->route('register');
+    }
+
+    //    $request->session()->forget('cart');
+    //    return redirect()->route('shop.index');
    }
 
-   /* Display the specified resource.
-    *
-    * @param  int  $id
-    * @return \Illuminate\Http\Response
-    */
-   public function show($id)
+   public function showOrder($id)
    {
        $order = Order::find($id);
 
