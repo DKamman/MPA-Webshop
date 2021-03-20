@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Session;
 
 class Cart
 {
@@ -11,8 +12,10 @@ class Cart
     public $totalQty = 0;
     public $totalPrice = 0;
 
-    public function __construct($prevCart)
+    public function __construct()
     {
+        $prevCart = Session::has('cart') ? Session::get('cart') : null; 
+
         if ($prevCart) {
             $this->items = $prevCart->items;            
             $this->totalQty = $prevCart->totalQty;
@@ -88,5 +91,9 @@ class Cart
                 $this->items[$id] = $item;
             }
         }
+    }
+
+    public function getItems() {
+      return $this->items;  
     }
 }

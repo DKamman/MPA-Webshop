@@ -28,9 +28,11 @@ class CartController extends Controller
     {
         $id = $request->input('id');
         $amount = $request->input('amount');
+
+        // $prevCart = Session::has('cart') ? Session::get('cart') : null; 
+
         $product = Product::find($id);
-        $prevCart = Session::has('cart') ? Session::get('cart') : null; 
-        $cart = new Cart($prevCart);
+        $cart = new Cart;
         $cart->add($product, $amount);
         Session::put('cart', $cart);
         // dd(Session::get('cart'));
@@ -39,8 +41,8 @@ class CartController extends Controller
 
     public function deleteFromCart(Request $request, $id)
     {
-        $prevCart = Session::get('cart');
-        $cart = new Cart($prevCart);
+        // $prevCart = Session::has('cart') ? Session::get('cart') : null; 
+        $cart = new Cart();
         $cart->remove($id);
         Session::put('cart', $cart);
         return redirect()->route('cart.index');
@@ -50,8 +52,10 @@ class CartController extends Controller
     {
         $id = $request->input('id');
         $amount = $request->input('amount');
-        $prevCart = Session::get('cart');
-        $cart = new Cart($prevCart);
+
+        // $prevCart = Session::has('cart') ? Session::get('cart') : null; 
+
+        $cart = new Cart;
         $cart->update($id, $amount);
         Session::put('cart', $cart);
         return redirect()->route('cart.index');
