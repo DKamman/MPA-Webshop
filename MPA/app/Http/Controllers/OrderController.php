@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Auth;
-
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -12,27 +12,11 @@ class OrderController extends Controller
    {
 
     $user = Auth::user(); 
-
+ 
     if ($user != NULL) {
         if ($request->session()->get('cart')) {
-            $cart = $request->session()->get('cart')->items;
-            // dd($cart);
-            $productKeys = array_keys($cart);
-            
-            foreach ($productKeys as $item) {
-                echo $item . '</br>';
-            }
-
-            // foreach ($cart as $product) {
-            //     echo $product['qty'] . "</br>";
-            //     echo $product['price'] . "</br>"; 
-            // }
-
-            // Order::create([
-            //     'cart' => serialize($cart),
-            //     'user_id' => $user->id,
-            // ]);
- 
+            $order = new Order($request);
+            $order->getKeys();        
         }
     } else {
        return redirect()->route('register');
