@@ -16,7 +16,8 @@ class OrderController extends Controller
     if (Auth::user() != NULL) {
         if ($request->session()->get('cart')) {
             $orderId;
-            $cart = $request->session()->get('cart')->items;
+            // $cart = $request->session()->get('cart')->items;
+            $cart = Cart::getCart()->items;
 
             //Creates Order, saves ID
             $newOrder = Order::create([
@@ -38,9 +39,6 @@ class OrderController extends Controller
     } else {
        return redirect()->route('register');
     }
-
-    //    $request->session()->forget('cart');
-    //    return redirect()->route('shop.index');
    }
 
    public function showOrder($id)
@@ -56,5 +54,4 @@ class OrderController extends Controller
 
        return redirect()->route('main.index');
    }
-
 }

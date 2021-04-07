@@ -100,4 +100,8 @@ class Cart
     public static function forgetCart() {
         Session::forget('cart');
     }
+
+    public static function getCart() {
+        return Session::get('cart');
+    }
 }
