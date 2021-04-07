@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 use Auth;
 use App\Models\Order;
 use App\Models\OrderProduct;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
 
-   public function order(Request $request)
+   public function placeOrder(Request $request)
    { 
  
     if (Auth::user() != NULL) {
@@ -32,6 +33,8 @@ class OrderController extends Controller
                 ]);
             }
         }
+        Cart::forgetCart();
+        return redirect()->route('cart.index');
     } else {
        return redirect()->route('register');
     }

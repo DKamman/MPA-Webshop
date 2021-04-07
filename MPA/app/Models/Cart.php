@@ -96,4 +96,8 @@ class Cart
     public function getItems() {
       return $this->items;  
     }
+
+    public static function forgetCart() {
+        Session::forget('cart');
+    }
 }

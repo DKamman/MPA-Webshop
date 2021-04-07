@@ -33,7 +33,7 @@ Route::get('/delete-from-cart/{id}', [CartController::class, 'deleteFromCart'])-
 Route::get('/update-cart', [CartController::class, 'updateCart'])->name('cart.update');
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 
-Route::post('/order', [OrderController::class, 'order'])->name('order');
+Route::post('/order', [OrderController::class, 'placeOrder'])->name('order');
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
