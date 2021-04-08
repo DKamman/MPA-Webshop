@@ -14,11 +14,14 @@ class Order extends Model
         'cart',
         'user_id'
     ];
-    /**
-    * Get the order products for the order.
-    */
-    // public function orderProducts()
-    // {
-    //     return $this->hasMany(OrderProduct::class);
-    // }
+
+    public function orderProducts()
+    {
+        return $this->hasMany(OrderProduct::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

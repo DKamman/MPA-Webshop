@@ -34,6 +34,7 @@ Route::get('/update-cart', [CartController::class, 'updateCart'])->name('cart.up
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 
 Route::post('/order', [OrderController::class, 'placeOrder'])->name('order');
+Route::get('/myorders', [OrderController::class, 'showOrders'])->name('order.show');
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);

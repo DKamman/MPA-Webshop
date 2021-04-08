@@ -30,8 +30,11 @@
                     </ul>
                     <ul class="navbar-nav ml-auto">
                         @auth
-                            <li class="nav-item ml-auto">
-                                <a class="nav-link" href="">{{Auth::user()->name}}</a>
+                            <li class="nav-item ml-auto dropdown">
+                                <a class="nav-link dropdown-toggle"  data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">{{Auth::user()->name}}</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="{{ route('order.show') }}">Orders</a>
+                                </div>
                             </li>
                         @endauth
                             <li class="nav-item ml-auto pr-4">
@@ -39,7 +42,7 @@
                                     Cart<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-transparent">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span>
                                 </a>
                             </li>
-                            @auth
+                        @auth
                             <li class="nav-item ml-auto">
                                 <form action="{{ route('logout') }}" method="post">
                                     @csrf

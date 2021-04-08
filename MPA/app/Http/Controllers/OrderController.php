@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Auth;
+use DB;
 use App\Models\Order;
 use App\Models\OrderProduct;
 use App\Models\Cart;
@@ -41,17 +42,22 @@ class OrderController extends Controller
     }
    }
 
-   public function showOrder($id)
+   public function showOrders()
    {
-       $order = Order::find($id);
-
-       if ($order !== null && Auth::user()->id == $order->user_id || Auth::user()->is_admin){
-           return view('admin.order.show',[
-               'order'=>$order,
-               'cart'=>unserialize($order->cart),
-               ]);
-       }
-
-       return redirect()->route('main.index');
-   }
+        if (Auth::user() != NULL) {
+            $orders = Auth::user()->orders;
+            $orderNum = 1;
+            // $orderProducts = array();
+            // foreach ($orders as $order) {
+            //     array_push($orderProducts, $order->orderProducts);
+            // }
+            // dd($orderProducts);
+            return view('order.index', [
+                'orders' => $orders,
+                'orderNum' => $orderNum
+            ]);
+        } else {
+            return redirect()->route('home.index');
+        }
+    }
 }
