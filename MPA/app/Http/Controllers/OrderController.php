@@ -47,11 +47,6 @@ class OrderController extends Controller
         if (Auth::user() != NULL) {
             $orders = Auth::user()->orders;
             $orderNum = 1;
-            // $orderProducts = array();
-            // foreach ($orders as $order) {
-            //     array_push($orderProducts, $order->orderProducts);
-            // }
-            // dd($orderProducts);
             return view('order.index', [
                 'orders' => $orders,
                 'orderNum' => $orderNum

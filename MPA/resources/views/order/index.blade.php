@@ -3,7 +3,6 @@
 @section('content')
 <div class="main mt-4">
     <div class="container">
-        <div class="col-lg-6 col-md-12"></div>
         @foreach ($orders as $order)
             <div class="mb-4">
                 <h3>Order {{$orderNum ++}}</h3>
@@ -20,7 +19,6 @@
                 @endforeach
             </div>
         @endforeach
-        </div>
     </div>
 </div>
 @endsection
