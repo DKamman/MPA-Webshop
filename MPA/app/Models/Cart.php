@@ -45,11 +45,6 @@ class Cart
             $this->totalQty -= $item['qty'];
             $this->totalPrice -= $item['price'];
             unset($this->items[$id]);
-
-            // If all shopping cart items are removed, the cart session should be set to null
-            // if ($this->totalQty == 0) {
-            //     Session::forget('cart');
-            // } 
         }
     }
 
@@ -57,9 +52,6 @@ class Cart
         if (array_key_exists($id, $this->items)) {
             $item = $this->items[$id];
             if ($amount == 0) {
-                // $this->totalQty -= $item['qty'];
-                // $this->totalPrice -= $item['price'];
-                // unset($this->items[$id]);
                 $this->remove($id);
                 return;
             } 
