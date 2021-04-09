@@ -33,7 +33,7 @@ Route::get('/delete-from-cart/{id}', [CartController::class, 'deleteFromCart'])-
 Route::get('/update-cart', [CartController::class, 'updateCart'])->name('cart.update');
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 
-Route::post('/order', [OrderController::class, 'placeOrder'])->name('order');
+Route::middleware('userlogin')->post('/order', [OrderController::class, 'placeOrder'])->name('order');
 Route::get('/myorders', [OrderController::class, 'showOrders'])->name('order.show');
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register');

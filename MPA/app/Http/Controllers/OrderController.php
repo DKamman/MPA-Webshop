@@ -14,7 +14,7 @@ class OrderController extends Controller
    public function placeOrder(Request $request)
    { 
  
-    if (Auth::user() != NULL) {
+    // if (Auth::user() != NULL) {
         if ($request->session()->get('cart')) {
             $orderId;
             // $cart = $request->session()->get('cart')->items;
@@ -37,9 +37,9 @@ class OrderController extends Controller
         }
         Cart::forgetCart();
         return redirect()->route('cart.index');
-    } else {
-       return redirect()->route('register');
-    }
+    // } else {
+    //    return redirect()->route('register');
+    // }
    }
 
    public function showOrders()
