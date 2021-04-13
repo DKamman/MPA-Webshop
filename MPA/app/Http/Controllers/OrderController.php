@@ -13,25 +13,26 @@ class OrderController extends Controller
 
    public function placeOrder(Request $request)
    { 
-        if ($request->session()->get('cart')) {
-            $orderId;
-            $cart = Cart::getCart()->items;
+        $cart = new Cart();
+        $items = $cart->items;
 
+        if ($items != null && $items.count() > 0) {
             $newOrder = Order::create([
                 'user_id' => auth()->id(),
             ]);
-            $orderId = $newOrder->id;
 
-            foreach ($cart as $item) {
-                OrderProduct::create([
-                    'order_id' => $orderId,
-                    'product_id' => $item['item']['id'],
-                    'quantity' => $item['qty'],
-                    'price' => $item['price']
-                ]);
+            if ($newOrder->id != null) {
+                foreach ($items as $item) {
+                    OrderProduct::create([
+                        'order_id' => $newOrder->id,
+                        'product_id' => $item['item']['id'],
+                        'quantity' => $item['qty'],
+                        'price' => $item['price']
+                    ]);
+                }
             }
+            $cart->forgetCart();
         }
-        Cart::forgetCart();
         return redirect()->route('cart.index');
    }
 

@@ -93,11 +93,9 @@ class Cart
       return $this->items;  
     }
 
-    public static function forgetCart() {
+    public function forgetCart() {
+        $items = null;
         Session::forget('cart');
     }
 
-    public static function getCart() {
-        return Session::get('cart');
-    }
 }
